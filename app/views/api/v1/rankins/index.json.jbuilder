@@ -1,6 +1,6 @@
 json.array!(@rankins) do |rankin|
   json.extract! rankin, :id, :first_name, :last_name, :birthday
-  json.url rankin_url(rankin, format: :json)
+  # json.url rankin_url(rankin, format: :json)
 end
 
 # This wraps the array in a root node called "data" for use in the datatable

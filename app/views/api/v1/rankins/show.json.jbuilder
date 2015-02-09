@@ -1,1 +1,1 @@
-json.extract! @rankin, :first_name
+json.extract! @rankin, :id, :first_name, :last_name, :birthday

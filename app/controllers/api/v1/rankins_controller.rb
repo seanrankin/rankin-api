@@ -3,11 +3,11 @@ class API::V1::RankinsController < ApplicationController
 
   def index
     @rankins = Rankin.all
-    render json: @rankins
+    # render json: @rankins
   end
 
   def show
-    render json: @rankin
+    # render json: @rankin
   end
 
   def create
