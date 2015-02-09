@@ -1,9 +1,8 @@
-class RankinsController < ApplicationController
+class API::V1::RankinsController < ApplicationController
   before_action :set_rankin, only: [:show, :update, :destroy]
 
   def index
     @rankins = Rankin.all
-
     render json: @rankins
   end
 

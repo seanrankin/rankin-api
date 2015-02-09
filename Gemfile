@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.7'
 gem 'rails-api'
 gem 'pg'
+gem 'jbuilder'
 
 group :production, :staging do
   gem "rails_12factor"
