@@ -1,10 +1,12 @@
 class API::V1::RankinsController < ApplicationController
   before_action :set_rankin, only: [:show, :update, :destroy]
 
+  # Format: http://localhost:3000/api/v1/rankins
   def index
     @rankins = Rankin.all
   end
 
+  # Format: http://localhost:3000/api/v1/rankins/1
   def show
   end
 
