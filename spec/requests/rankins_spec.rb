@@ -3,11 +3,11 @@ require 'spec_helper'
 describe "Rankins API" do
   describe "GET /api/v1/rankins" do
     it "returns all the Rankins" do
-
       FactoryGirl.create(:rankin, :first_name => 'Joe', :last_name => 'Rankin')
       FactoryGirl.create(:rankin, :first_name => 'Bob', :last_name => 'Rankin')
+      @api_key = FactoryGirl.create(:api_key)
 
-      get "/api/v1/rankins", {}, { "Accept" => "application/json" }
+      get "/api/v1/rankins", {}, { "Accept" => "application/json", "HTTP_AUTHORIZATION"=>"Token token=\"#{@api_key.access_token}\"" }
 
       expect(response.status).to eq 200
 
@@ -22,10 +22,10 @@ describe "Rankins API" do
 
   describe "GET /api/v1/rankins/:id" do
     it "returns a requested rankin" do
-
       m = FactoryGirl.create(:rankin, :first_name => 'Frank', :last_name => 'Rankin')
+      @api_key = FactoryGirl.create(:api_key)
 
-      get "/api/v1/rankins/#{m.id}", {}, { "Accept" => "application/json" }
+      get "/api/v1/rankins/#{m.id}", {}, { "Accept" => "application/json", "HTTP_AUTHORIZATION"=>"Token token=\"#{@api_key.access_token}\"" }
 
       expect(response.status).to eq 200
 
