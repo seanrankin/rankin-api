@@ -3,18 +3,17 @@ class API::V1::RankinsController < ApplicationController
 
   def index
     @rankins = Rankin.all
-    # render json: @rankins
   end
 
   def show
-    # render json: @rankin
   end
 
+  # Format http://localhost:3000/api/v1/rankins?rankin[first_name]=Ben&rankin[last_name]=Hur
   def create
     @rankin = Rankin.new(rankin_params)
 
     if @rankin.save
-      render json: @rankin, status: :created, location: @rankin
+      render json: @rankin, status: :created, location: api_v1_rankin_url(@rankin, format: :json)
     else
       render json: @rankin.errors, status: :unprocessable_entity
     end
@@ -30,6 +29,7 @@ class API::V1::RankinsController < ApplicationController
     end
   end
 
+  # Format: http://localhost:3000/api/v1/rankins/29
   def destroy
     @rankin.destroy
 
