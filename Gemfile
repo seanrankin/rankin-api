@@ -10,6 +10,15 @@ group :production, :staging do
 end
 
 group :development do
-  gem "spring"
   gem "quiet_assets"
+  gem "spring"
+  gem "foreman"
+  gem "guard"
+  gem "guard-rspec"
+  gem "guard-livereload", :require => false
+end
+
+group :test, :development do
+  gem "factory_girl_rails"
+  gem "rspec-rails"
 end
