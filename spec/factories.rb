@@ -6,5 +6,8 @@ FactoryGirl.define do
   factory :rankin do
     first_name "Fakey"
     last_name "Rankin"
+    birthday "30/12/1974"
+    city "Chicago"
+    state "IL"
   end
 end
